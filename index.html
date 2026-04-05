@@ -9,9 +9,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-
-            /* Fondo pastel */
-            background: linear-gradient(135deg, #fff9c4, #ffe0b2);
+            background: #fff; /* fondo limpio blanco */
+            overflow: hidden;
         }
 
         .contenedor {
@@ -21,17 +20,17 @@
             width: 80%;
             max-width: 500px;
             border-radius: 20px;
-
-            /* Sombra bonita */
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
-            color: #ff80ab;
+            color: #ff4d6d;
         }
 
         h2 {
-            color: #ff4081;
+            color: #ff4d6d;
         }
 
         p {
@@ -49,27 +48,39 @@
         }
 
         .si {
-            background-color: #ff80ab;
+            background-color: #ff4d6d;
             color: white;
-        }
-
-        .si:hover {
-            background-color: #ff4081;
         }
 
         .no {
-            background-color: #b0bec5;
+            background-color: #999;
             color: white;
-        }
-
-        .no:hover {
-            background-color: #90a4ae;
         }
 
         #respuesta {
             margin-top: 20px;
             font-size: 18px;
-            color: #333;
+        }
+
+        /* 💖 Corazones */
+        .corazon {
+            position: fixed;
+            bottom: -10px;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: subir 5s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -106,6 +117,25 @@
         document.getElementById("respuesta").innerHTML =
         "Bueno… igual lo voy a intentar 💖";
     }
+
+    // 💖 Generar corazones
+    function crearCorazon() {
+        const corazon = document.createElement("div");
+        corazon.classList.add("corazon");
+        corazon.innerHTML = "💖";
+
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.fontSize = (Math.random() * 20 + 10) + "px";
+        corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+            corazon.remove();
+        }, 5000);
+    }
+
+    setInterval(crearCorazon, 300);
 </script>
 
 </body>
