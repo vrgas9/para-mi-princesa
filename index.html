@@ -9,48 +9,67 @@
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-            color: white;
 
-            /* Fondo de osito */
-            background-image: url('https://i.imgur.com/8Km9tLL.jpg');
-            background-size: cover;
-            background-position: center;
+            /* Fondo pastel */
+            background: linear-gradient(135deg, #fff9c4, #ffe0b2);
         }
 
         .contenedor {
-            background: rgba(0, 0, 0, 0.5);
+            background: white;
             padding: 30px;
             margin: 100px auto;
             width: 80%;
-            border-radius: 15px;
+            max-width: 500px;
+            border-radius: 20px;
+
+            /* Sombra bonita */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         h1 {
-            color: pink;
+            color: #ff80ab;
+        }
+
+        h2 {
+            color: #ff4081;
+        }
+
+        p {
+            color: #555;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             margin: 10px;
             border: none;
-            border-radius: 10px;
+            border-radius: 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .si {
-            background-color: #ff4d6d;
+            background-color: #ff80ab;
             color: white;
         }
 
+        .si:hover {
+            background-color: #ff4081;
+        }
+
         .no {
-            background-color: gray;
+            background-color: #b0bec5;
             color: white;
+        }
+
+        .no:hover {
+            background-color: #90a4ae;
         }
 
         #respuesta {
             margin-top: 20px;
             font-size: 18px;
+            color: #333;
         }
     </style>
 </head>
@@ -71,7 +90,7 @@
 
     <h2>¿Cerrarías los ojos y te dejarías guiar solo por 5 minutos? Confía en mí 💕</h2>
 
-    <button class="si" onclick="respuestaSi()">Sí </button>
+    <button class="si" onclick="respuestaSi()">Sí 💖</button>
     <button class="no" onclick="respuestaNo()">No </button>
 
     <p id="respuesta"></p>
