@@ -1,145 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Para mi princesa 💖</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #fff; /* fondo limpio blanco */
-            overflow: hidden;
-        }
-
-        .contenedor {
-            background: white;
-            padding: 30px;
-            margin: 100px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            color: #ff4d6d;
-        }
-
-        h2 {
-            color: #ff4d6d;
-        }
-
-        p {
-            color: #555;
-        }
-
-        button {
-            padding: 12px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .si {
-            background-color: #ff4d6d;
-            color: white;
-        }
-
-        .no {
-            background-color: #999;
-            color: white;
-        }
-
-        #respuesta {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        /* 💖 Corazones */
-        .corazon {
-            position: fixed;
-            bottom: -10px;
-            color: #ff4d6d;
-            font-size: 20px;
-            animation: subir 5s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes subir {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    h1 {
+      color: crimson;
+      margin-top: 100px;
+      animation: latido 1s infinite;
+    }
+    @keyframes latido {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: pink;
+      color: white;
+    }
+    .no {
+      background-color: lightgray;
+      color: black;
+    }
+    /* Pantalla completa de carta */
+    .pantalla-carta {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,240,245,0.95);
+      z-index: 999;
+      text-align: center;
+      padding: 50px;
+      animation: aparecer 1s ease-in-out;
+    }
+    @keyframes aparecer {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .pantalla-carta h2 {
+      color: crimson;
+      font-size: 32px;
+    }
+    .pantalla-carta p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    .cerrar {
+      margin-top: 30px;
+      background-color: crimson;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    /* corazones flotando */
+    .corazon {
+      position: absolute;
+      color: crimson;
+      font-size: 24px;
+      animation: flotar 6s linear;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-600px); opacity: 0; }
+    }
+  </style>
 </head>
-
 <body>
+  <h1 id="pregunta">¿Quieres ser mi novia?</h1>
+  <div class="buttons" id="botones">
+    <button class="yes" onclick="mostrarCarta()">Sí 💖</button>
+    <button class="no" onclick="alert('Ohh 😔, igual te quiero mucho')">No 😔</button>
+  </div>
 
-<div class="contenedor">
-    <h1>Para mi princesa 💖</h1>
-
+  <!-- Pantalla completa de carta -->
+  <div class="pantalla-carta" id="pantallaCarta">
+    <h2>Mi carta para ti 💌</h2>
     <p>
-        Dicen que cada persona tiene un alma gemela en este mundo y yo no sé si eso sea verdad,
-        pero desde que te conocí, sentí algo diferente, algo que no quiero perder nunca.
+      Desde que llegaste a mi vida, todo es más bonito.  
+      Me haces sonreír con solo pensar en ti, y cada día me siento más afortunado de tenerte cerca.  
+      Quiero compartir contigo mis sueños, mis alegrías y mis momentos más simples, porque contigo todo se vuelve especial.  
+      ¿Quieres caminar conmigo en esta aventura llamada amor?
     </p>
+    <p><strong>Con todo mi cariño, Gabriel ❤️</strong></p>
+    <button class="cerrar" onclick="cerrarCarta()">Cerrar ✨</button>
+  </div>
 
-    <p>
-        Me haces feliz, me haces reír y haces que todo tenga sentido. Por eso quiero preguntarte algo importante
-    </p>
+  <!-- Música de fondo -->
+  <audio id="musica" autoplay loop>
+    <source src="tuCancion.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
 
-    <h2>¿Cerrarías los ojos y te dejarías guiar solo por 5 minutos? Confía en mí 💕</h2>
-
-    <button class="si" onclick="respuestaSi()">Sí 💖</button>
-    <button class="no" onclick="respuestaNo()">No </button>
-
-    <p id="respuesta"></p>
-</div>
-
-<script>
-    function respuestaSi(){
-
-document.getElementById("respuesta").innerHTML =
-"Cierra los ojos y toma mi mano ";
-
-}
-    
-
-    function respuestaNo() {
-        document.getElementById("respuesta").innerHTML =
-        "Bueno… igual lo voy a intentar 💖";
+  <script>
+    function mostrarCarta() {
+      document.getElementById('pantallaCarta').style.display = 'block';
+      document.getElementById('pregunta').style.display = 'none';
+      document.getElementById('botones').style.display = 'none';
     }
 
-    // 💖 Generar corazones
+    function cerrarCarta() {
+      document.getElementById('pantallaCarta').style.display = 'none';
+      document.getElementById('pregunta').style.display = 'block';
+      document.getElementById('botones').style.display = 'block';
+    }
+
+    // corazones flotando
     function crearCorazon() {
-        const corazon = document.createElement("div");
-        corazon.classList.add("corazon");
-        corazon.innerHTML = "💖";
+      const corazon = document.createElement('div');
+      corazon.classList.add('corazon');
+      corazon.innerHTML = '❤️';
+      corazon.style.left = Math.random() * window.innerWidth + 'px';
+      corazon.style.top = window.innerHeight + 'px';
+      document.body.appendChild(corazon);
 
-        corazon.style.left = Math.random() * 100 + "vw";
-        corazon.style.fontSize = (Math.random() * 20 + 10) + "px";
-        corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
-
-        document.body.appendChild(corazon);
-
-        setTimeout(() => {
-            corazon.remove();
-        }, 5000);
+      setTimeout(() => {
+        corazon.remove();
+      }, 6000);
     }
-
-    setInterval(crearCorazon, 300);
-</script>
-
+    setInterval(crearCorazon, 800);
+  </script>
 </body>
 </html>
