@@ -35,20 +35,10 @@
       font-size: 22px;
       line-height: 1.6;
       color: #333;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-    .cerrar {
-      margin-top: 30px;
-      background-color: #b22222;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      border: none;
-      font-size: 18px;
     }
     /* corazones flotando */
     .corazon {
@@ -61,38 +51,17 @@
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-600px); opacity: 0; }
     }
-    /* estrellas brillando */
-    .estrella {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: brillar 2s infinite alternate;
-    }
-    @keyframes brillar {
-      from { opacity: 0.2; transform: scale(1); }
-      to { opacity: 1; transform: scale(1.5); }
-    }
   </style>
 </head>
 <body>
   <h1>Una invitación especial ✨</h1>
 
   <div class="mensaje">
-    Quiero compartir contigo un momento tranquilo y especial.  
-    Me encantaría invitarte a comer, disfrutar de buena conversación y reírnos juntos.  
-    No hace falta nada más que tu compañía para que la noche sea perfecta.  
-    Espero que aceptes esta pequeña invitación, porque sé que será un recuerdo bonito.  
+    Me encantaría compartir contigo una comida tranquila,  
+    disfrutar de buena conversación y pasar un rato agradable.  
+    No hace falta nada más que tu compañía para que la ocasión sea especial.  
+    Espero que aceptes esta invitación, porque sé que será un momento bonito.  
   </div>
-
-  <button class="cerrar" onclick="alert('Gracias por leer mi invitación 💖')">Cerrar</button>
-
-  <!-- Música de fondo -->
-  <audio id="musica" autoplay loop>
-    <source src="tuCancion.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
 
   <script>
     // corazones flotando
@@ -106,22 +75,6 @@
       setTimeout(() => { corazon.remove(); }, 6000);
     }
     setInterval(crearCorazon, 1000);
-
-    // estrellas brillando
-    function crearEstrella() {
-      const estrella = document.createElement('div');
-      estrella.classList.add('estrella');
-      estrella.style.left = Math.random() * window.innerWidth + 'px';
-      estrella.style.top = Math.random() * window.innerHeight + 'px';
-      document.body.appendChild(estrella);
-      setTimeout(() => { estrella.remove(); }, 4000);
-    }
-    setInterval(crearEstrella, 500);
   </script>
 </body>
 </html>
-
-
-
-
-
