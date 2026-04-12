@@ -29,122 +29,59 @@
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
-    .buttons {
-      margin-top: 20px;
-    }
+    .buttons { margin-top: 20px; }
     button {
-      font-size: 18px;
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      font-size: 18px; padding: 10px 20px; margin: 10px;
+      border: none; border-radius: 8px; cursor: pointer;
     }
-    .yes {
-      background-color: pink;
-      color: white;
-    }
-    .no {
-      background-color: lightgray;
-      color: black;
-    }
-    /* Pantalla completa de carta */
+    .yes { background-color: pink; color: white; }
+    .no { background-color: lightgray; color: black; }
     .pantalla-carta {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255,240,245,0.95);
-      z-index: 999;
-      text-align: center;
-      padding: 50px;
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(255,240,245,0.95);
+      z-index: 999; text-align: center; padding: 50px;
       animation: aparecer 1s ease-in-out;
     }
-    @keyframes aparecer {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .pantalla-carta h2 {
-      color: crimson;
-      font-size: 32px;
-    }
+    @keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+    .pantalla-carta h2 { color: crimson; font-size: 32px; }
     .pantalla-carta p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
+      font-size: 20px; max-width: 700px; margin: 20px auto; line-height: 1.6;
     }
     .cerrar {
-      margin-top: 30px;
-      background-color: crimson;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
+      margin-top: 30px; background-color: crimson; color: white;
+      padding: 10px 20px; border-radius: 8px; cursor: pointer;
     }
-    /* corazones flotando */
     .corazon {
-      position: absolute;
-      color: crimson;
-      font-size: 24px;
+      position: absolute; color: crimson; font-size: 24px;
       animation: flotar 6s linear;
     }
     @keyframes flotar {
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-600px); opacity: 0; }
     }
-    /* estrellas brillando */
     .estrella {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: brillar 2s infinite alternate;
+      position: absolute; width: 2px; height: 2px; background: white;
+      border-radius: 50%; animation: brillar 2s infinite alternate;
     }
     @keyframes brillar {
       from { opacity: 0.2; transform: scale(1); }
       to { opacity: 1; transform: scale(1.5); }
     }
-    /* foto en forma de corazón con marco dorado */
     .foto {
-      margin-top: 20px;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      clip-path: polygon(
-        50% 0%, 61% 12%, 75% 12%, 88% 25%, 88% 40%, 
-        75% 55%, 50% 100%, 25% 55%, 12% 40%, 12% 25%, 
-        25% 12%, 39% 12%
-      );
-      border: 5px solid gold;
-      box-shadow: 0 0 20px gold;
+      margin-top: 20px; width: 200px; height: 200px; object-fit: cover;
+      clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 88% 25%, 88% 40%, 
+        75% 55%, 50% 100%, 25% 55%, 12% 40%, 12% 25%, 25% 12%, 39% 12%);
+      border: 5px solid gold; box-shadow: 0 0 20px gold;
       animation: aparecerFoto 2s ease-in-out, brillarMarco 2s infinite alternate;
     }
-    @keyframes aparecerFoto {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes brillarMarco {
-      from { box-shadow: 0 0 10px gold; }
-      to { box-shadow: 0 0 25px gold; }
-    }
-    /* efecto máquina de escribir */
+    @keyframes aparecerFoto { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+    @keyframes brillarMarco { from { box-shadow: 0 0 10px gold; } to { box-shadow: 0 0 25px gold; } }
     .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      border-right: .15em solid crimson;
-      white-space: nowrap;
-      animation: typing 6s steps(60, end), blink-caret .75s step-end infinite;
+      display: inline-block; overflow: hidden; border-right: .15em solid crimson;
+      white-space: nowrap; animation: typing 6s steps(60, end), blink-caret .75s step-end infinite;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: crimson; }
-    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: crimson; } }
   </style>
 </head>
 <body>
@@ -154,7 +91,6 @@
     <button class="no" onclick="alert('Ohh 😔, igual te quiero mucho')">No 😔</button>
   </div>
 
-  <!-- Pantalla completa de carta -->
   <div class="pantalla-carta" id="pantallaCarta">
     <h2>Mi carta para ti 💌</h2>
     <p class="typewriter">
@@ -164,14 +100,10 @@
       ¿Quieres caminar conmigo en esta aventura llamada amor?
     </p>
     <p><strong>Con todo mi cariño, Gabriel ❤️</strong></p>
-
-    <!-- Foto en forma de corazón con marco dorado -->
     <img src="foto.jpeg" alt="Nuestra foto juntos" class="foto">
-
     <button class="cerrar" onclick="cerrarCarta()">Cerrar ✨</button>
   </div>
 
-  <!-- Música de fondo -->
   <audio id="musica" autoplay loop>
     <source src="tuCancion.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
@@ -183,42 +115,32 @@
       document.getElementById('pregunta').style.display = 'none';
       document.getElementById('botones').style.display = 'none';
     }
-
     function cerrarCarta() {
       document.getElementById('pantallaCarta').style.display = 'none';
       document.getElementById('pregunta').style.display = 'block';
       document.getElementById('botones').style.display = 'block';
     }
-
-    // corazones flotando
     function crearCorazon() {
       const corazon = document.createElement('div');
-      corazon.classList.add('corazon');
-      corazon.innerHTML = '❤️';
+      corazon.classList.add('corazon'); corazon.innerHTML = '❤️';
       corazon.style.left = Math.random() * window.innerWidth + 'px';
       corazon.style.top = window.innerHeight + 'px';
       document.body.appendChild(corazon);
-
-      setTimeout(() => {
-        corazon.remove();
-      }, 6000);
+      setTimeout(() => { corazon.remove(); }, 6000);
     }
     setInterval(crearCorazon, 800);
-
-    // estrellas brillando
     function crearEstrella() {
       const estrella = document.createElement('div');
       estrella.classList.add('estrella');
       estrella.style.left = Math.random() * window.innerWidth + 'px';
       estrella.style.top = Math.random() * window.innerHeight + 'px';
       document.body.appendChild(estrella);
-
-      setTimeout(() => {
-        estrella.remove();
-      }, 4000);
+      setTimeout(() => { estrella.remove(); }, 4000);
     }
     setInterval(crearEstrella, 500);
   </script>
 </body>
 </html>
+
+
 
