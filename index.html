@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      /* Fondo animado */
+      /* Fondo gradiente animado */
       background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
       background-size: 400% 400%;
       animation: gradiente 15s ease infinite;
@@ -94,6 +94,42 @@
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-600px); opacity: 0; }
     }
+    /* estrellas brillando */
+    .estrella {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: brillar 2s infinite alternate;
+    }
+    @keyframes brillar {
+      from { opacity: 0.2; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.5); }
+    }
+    /* foto en forma de corazón con marco dorado */
+    .foto {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      clip-path: polygon(
+        50% 0%, 61% 12%, 75% 12%, 88% 25%, 88% 40%, 
+        75% 55%, 50% 100%, 25% 55%, 12% 40%, 12% 25%, 
+        25% 12%, 39% 12%
+      );
+      border: 5px solid gold;
+      box-shadow: 0 0 20px gold;
+      animation: aparecerFoto 2s ease-in-out, brillarMarco 2s infinite alternate;
+    }
+    @keyframes aparecerFoto {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes brillarMarco {
+      from { box-shadow: 0 0 10px gold; }
+      to { box-shadow: 0 0 25px gold; }
+    }
   </style>
 </head>
 <body>
@@ -113,6 +149,10 @@
       ¿Quieres caminar conmigo en esta aventura llamada amor?
     </p>
     <p><strong>Con todo mi cariño, Gabriel ❤️</strong></p>
+
+    <!-- Foto en forma de corazón con marco dorado -->
+    <img src="foto.jpeg" alt="Nuestra foto juntos" class="foto">
+
     <button class="cerrar" onclick="cerrarCarta()">Cerrar ✨</button>
   </div>
 
@@ -149,6 +189,20 @@
       }, 6000);
     }
     setInterval(crearCorazon, 800);
+
+    // estrellas brillando
+    function crearEstrella() {
+      const estrella = document.createElement('div');
+      estrella.classList.add('estrella');
+      estrella.style.left = Math.random() * window.innerWidth + 'px';
+      estrella.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(estrella);
+
+      setTimeout(() => {
+        estrella.remove();
+      }, 4000);
+    }
+    setInterval(crearEstrella, 500);
   </script>
 </body>
 </html>
