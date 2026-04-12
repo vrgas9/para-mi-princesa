@@ -6,11 +6,10 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      /* Fondo gradiente animado */
+      text-align: center;
       background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
       background-size: 400% 400%;
       animation: gradiente 15s ease infinite;
@@ -130,6 +129,22 @@
       from { box-shadow: 0 0 10px gold; }
       to { box-shadow: 0 0 25px gold; }
     }
+    /* efecto máquina de escribir */
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: .15em solid crimson;
+      white-space: nowrap;
+      animation: typing 6s steps(60, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: crimson; }
+    }
   </style>
 </head>
 <body>
@@ -142,7 +157,7 @@
   <!-- Pantalla completa de carta -->
   <div class="pantalla-carta" id="pantallaCarta">
     <h2>Mi carta para ti 💌</h2>
-    <p>
+    <p class="typewriter">
       Desde que llegaste a mi vida, todo es más bonito.  
       Me haces sonreír con solo pensar en ti, y cada día me siento más afortunado de tenerte cerca.  
       Quiero compartir contigo mis sueños, mis alegrías y mis momentos más simples, porque contigo todo se vuelve especial.  
@@ -206,3 +221,4 @@
   </script>
 </body>
 </html>
+
